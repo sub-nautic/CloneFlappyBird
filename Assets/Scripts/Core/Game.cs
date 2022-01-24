@@ -32,7 +32,7 @@ namespace FluffyBird.Core
 
         private const float JUMP_SPEED = 20f;
         private const int OBSTICLE_AMOUNT = 6;
-        private const float GROUND_RESET_DISCTANCE = 6.27f;
+        private const float GROUND_RESET_DISCTANCE = 4.1f;
 
         private List<Obsticle> obsticles = new List<Obsticle>();
 

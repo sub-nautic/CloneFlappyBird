@@ -48,12 +48,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameHandler: {fileID: 0}
-  startScreen: {fileID: 0}
   animatorUI: {fileID: 0}
   animatorFade: {fileID: 3662453215236895362}
-  startScreenTooltip: {fileID: 0}
-  endScreen: {fileID: 0}
   audioManager: {fileID: 3674549622315719215}
+  resetButton: {fileID: 0}
+  leadboardButton: {fileID: 0}
   scoreText: {fileID: 0}
   scoreEndText: {fileID: 0}
   scoreBestText: {fileID: 0}
@@ -214,8 +213,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6539434982331562065}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 6.6, y: 10, z: 0}
-  m_LocalScale: {x: 14, y: 20, z: 15.287}
+  m_LocalPosition: {x: 5, y: 10, z: 0}
+  m_LocalScale: {x: 20, y: 20, z: 15.287}
   m_Children: []
   m_Father: {fileID: 2312884524442201539}
   m_RootOrder: 0
