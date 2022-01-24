@@ -47,7 +47,7 @@ namespace FluffyBird.Core
         public void HitObsticle()
         {
             gameHandler.StopObsticles();
-            gameHandler.CanActive = false;
+            gameHandler.CanPlay = false;
         }
 
         public void HitGround()
@@ -55,7 +55,7 @@ namespace FluffyBird.Core
             gameHandler.GetBirdRigidbody2D().isKinematic = true;
             gameHandler.GetBirdRigidbody2D().velocity = Vector3.zero;
             gameHandler.IsGameStarted = false;
-            gameHandler.CanActive = false;
+            gameHandler.CanPlay = false;
             gameHandler.GetBirdAnimator().SetBool("canFly", false);
             HitObsticle();
             UpdateEndScore();
@@ -136,7 +136,7 @@ namespace FluffyBird.Core
 
         public void CanActiveStateChange()
         {
-            gameHandler.CanActive = true;
+            gameHandler.CanPlay = true;
         }
 
         public void PlayMenuSound()

@@ -33,7 +33,7 @@ namespace FluffyBird.Bird
 
         private void OnTriggerEnter2D(Collider2D other)
         {
-            if (other.gameObject.layer == LayerMask.NameToLayer("Obsticle") && gameHandler.CanActive)
+            if (other.gameObject.layer == LayerMask.NameToLayer("Obsticle") && gameHandler.CanPlay)
             {
                 manager.HitObsticle();
                 manager.GetFadeAnimator().SetTrigger("WhiteScreen");
@@ -41,7 +41,7 @@ namespace FluffyBird.Bird
             }
             else if (other.gameObject.layer == LayerMask.NameToLayer("Ground"))
             {
-                if (gameHandler.CanActive)
+                if (gameHandler.CanPlay)
                 {
                     manager.GetFadeAnimator().SetTrigger("WhiteScreen");
                     audioManager.PlaySound("Hit");
@@ -51,7 +51,7 @@ namespace FluffyBird.Bird
             }
             else
             {
-                if (gameHandler.CanActive)
+                if (gameHandler.CanPlay)
                 {
                     manager.AddPoint();
                     audioManager.PlaySound("Point");

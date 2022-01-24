@@ -15,7 +15,7 @@ namespace FluffyBird.Collections
 
         public void CanActiveStateChange()
         {
-            gameHandler.CanActive = true;
+            gameHandler.CanPlay = true;
         }
 
         public void MenuSound()

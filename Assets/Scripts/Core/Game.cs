@@ -30,12 +30,10 @@ namespace FluffyBird.Core
         [SerializeField]
         private AudioManager audioManager;
 
-        private const float JUMP_SPEED = 20f;
-        private const int OBSTICLE_AMOUNT = 6;
-        private const float GROUND_RESET_DISCTANCE = 4.1f;
+        public bool IsGameStarted = false;
+        public bool CanPlay = false;
 
         private List<Obsticle> obsticles = new List<Obsticle>();
-
         private Rigidbody2D birdRB;
         private BirdInput birdInput;
         private Animator birdAnimator;
@@ -44,8 +42,9 @@ namespace FluffyBird.Core
         private Vector3 startGroundPos;
         private int currentObsticlePooled = 0;
 
-        public bool IsGameStarted = false;
-        public bool CanActive = false;
+        private const float JUMP_SPEED = 20f;
+        private const int OBSTICLE_AMOUNT = 6;
+        private const float GROUND_RESET_DISCTANCE = 4.1f;
 
         private void Awake()
         {
@@ -64,7 +63,7 @@ namespace FluffyBird.Core
 
         private void Update()
         {
-            if (CanActive)
+            if (CanPlay)
             {
                 GroundMovement();
             }
@@ -106,7 +105,7 @@ namespace FluffyBird.Core
 
         private void Jump(InputAction.CallbackContext obj)
         {
-            if (obj.performed && CanActive)
+            if (obj.performed && CanPlay)
             {
                 if (!IsGameStarted)
                 {
