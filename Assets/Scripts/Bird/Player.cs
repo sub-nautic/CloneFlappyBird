@@ -35,7 +35,7 @@ namespace FluffyBird.Bird
         {
             if (other.gameObject.layer == LayerMask.NameToLayer("Obsticle") && gameHandler.CanPlay)
             {
-                manager.HitObsticle();
+                manager.HitObstacle();
                 manager.GetFadeAnimator().SetTrigger("WhiteScreen");
                 audioManager.PlaySound("Hit");
             }
@@ -61,7 +61,7 @@ namespace FluffyBird.Bird
 
         public void FlyDown()
         {
-            if (gameHandler.IsGameStarted)
+            if (gameHandler.HasGameStarted)
             {
                 transform.eulerAngles = new Vector3(0f, 0f, birdRigidbody2D.velocity.y * rotationDownSpeed);
             }

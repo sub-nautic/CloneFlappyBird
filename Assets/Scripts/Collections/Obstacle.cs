@@ -5,17 +5,14 @@ using UnityEngine;
 
 namespace FluffyBird.Collections
 {
-    public class Obsticle : MonoBehaviour
+    public class Obstacle : MonoBehaviour
     {
-        [SerializeField]
-        private Transform obsticleMeshTransform;
-
         public bool CanMove = true;
 
         private const float DISTANCE_TO_DISABLE = -2f;
 
         private Game gameHandler;
-        private float obsticleSpeed;
+        private float obstacleSpeed;
 
         private void Awake()
         {
@@ -24,7 +21,7 @@ namespace FluffyBird.Collections
 
         private void Start()
         {
-            obsticleSpeed = gameHandler.GetObsticleSetting().ObsticleMoveSpeed;
+            obstacleSpeed = gameHandler.GetObstacleSetting().ObstacleMoveSpeed;
         }
 
         private void OnEnable()
@@ -36,7 +33,7 @@ namespace FluffyBird.Collections
         {
             if (CanMove)
             {
-                transform.Translate(-Vector3.right * Time.deltaTime * obsticleSpeed);
+                transform.Translate(-Vector3.right * Time.deltaTime * obstacleSpeed);
             }
         }
 
@@ -46,11 +43,6 @@ namespace FluffyBird.Collections
             {
                 gameObject.SetActive(false);
             }
-        }
-
-        public Transform GetObsticleMeshTransform()
-        {
-            return obsticleMeshTransform;
         }
     }
 }

@@ -96,7 +96,7 @@ GameObject:
   - component: {fileID: 5997925067637367381}
   - component: {fileID: 1426769797272950938}
   m_Layer: 9
-  m_Name: Obsticle
+  m_Name: Obstacle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -133,7 +133,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b7c37765c91d6a4883927fb8cc8a097, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  obsticleMeshTransform: {fileID: 1426769797810732623}
+  obstacleMeshTransform: {fileID: 1426769797272950939}
   CanMove: 1
 --- !u!61 &1426769797272950937
 BoxCollider2D:

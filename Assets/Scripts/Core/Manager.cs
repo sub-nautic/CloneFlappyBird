@@ -44,7 +44,7 @@ namespace FluffyBird.Core
             InitialiseGame();
         }
 
-        public void HitObsticle()
+        public void HitObstacle()
         {
             gameHandler.StopObsticles();
             gameHandler.CanPlay = false;
@@ -54,10 +54,10 @@ namespace FluffyBird.Core
         {
             gameHandler.GetBirdRigidbody2D().isKinematic = true;
             gameHandler.GetBirdRigidbody2D().velocity = Vector3.zero;
-            gameHandler.IsGameStarted = false;
+            gameHandler.HasGameStarted = false;
             gameHandler.CanPlay = false;
             gameHandler.GetBirdAnimator().SetBool("canFly", false);
-            HitObsticle();
+            HitObstacle();
             UpdateEndScore();
             resetButton.interactable = true;
             leadboardButton.interactable = true;

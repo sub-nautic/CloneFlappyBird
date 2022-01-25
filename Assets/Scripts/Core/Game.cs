@@ -16,13 +16,13 @@ namespace FluffyBird.Core
         private Player bird;
 
         [SerializeField]
-        private Obsticle obsticle;
+        private Obstacle obstacle;
 
         [SerializeField]
         private Transform ground;
 
         [SerializeField]
-        private ObsticleSetting obsticleSetting;
+        private ObstacleSetting obstacleSetting;
 
         [SerializeField]
         private Transform spawnPos;
@@ -30,10 +30,10 @@ namespace FluffyBird.Core
         [SerializeField]
         private AudioManager audioManager;
 
-        public bool IsGameStarted = false;
+        public bool HasGameStarted = false;
         public bool CanPlay = false;
 
-        private List<Obsticle> obsticles = new List<Obsticle>();
+        private List<Obstacle> obsticles = new List<Obstacle>();
         private Rigidbody2D birdRB;
         private BirdInput birdInput;
         private Animator birdAnimator;
@@ -83,13 +83,13 @@ namespace FluffyBird.Core
             birdRB.isKinematic = false;
             obsticleGenerator = StartCoroutine(GenerateStructure());
             manager.GetUIAnimator().SetTrigger("StartPlay");
-            IsGameStarted = true;
+            HasGameStarted = true;
         }
 
         public void StopObsticles()
         {
             StopCoroutine(obsticleGenerator);
-            foreach (Obsticle obsticle in obsticles)
+            foreach (Obstacle obsticle in obsticles)
             {
                 obsticle.CanMove = false;
             }
@@ -107,7 +107,7 @@ namespace FluffyBird.Core
         {
             if (obj.performed && CanPlay)
             {
-                if (!IsGameStarted)
+                if (!HasGameStarted)
                 {
                     StartGame();
                 }
@@ -137,7 +137,7 @@ namespace FluffyBird.Core
 
             for (int i = 0; i <= OBSTICLE_AMOUNT - 1; i++)
             {
-                Obsticle obj = Instantiate(obsticle);
+                Obstacle obj = Instantiate(obstacle);
                 obj.transform.SetParent(obsticleRoot);
                 obsticles.Add(obj);
             }
@@ -145,10 +145,10 @@ namespace FluffyBird.Core
 
         private IEnumerator GenerateStructure()
         {
-            Obsticle currObsticle = obsticles[currentObsticlePooled];
+            Obstacle currObsticle = obsticles[currentObsticlePooled];
 
-            Vector3 spawnPos = new Vector3(obsticleSetting.SpawnDistanceOffset, 0f, 0f);
-            Vector3 spawnHeight = new Vector3(0f, Random.Range(0f, obsticleSetting.HeightVariationMax), 0f);
+            Vector3 spawnPos = new Vector3(obstacleSetting.SpawnDistanceOffset, 0f, 0f);
+            Vector3 spawnHeight = new Vector3(0f, Random.Range(0f, obstacleSetting.HeightVariationMax), 0f);
             currObsticle.transform.position = spawnPos + spawnHeight;
             currObsticle.gameObject.SetActive(true);
 
@@ -158,14 +158,14 @@ namespace FluffyBird.Core
                 currentObsticlePooled = 0;
             }
 
-            yield return new WaitForSeconds(obsticleSetting.ObsticleResetDelay);
+            yield return new WaitForSeconds(obstacleSetting.ObstacleResetDelay);
 
             obsticleGenerator = StartCoroutine(GenerateStructure());
         }
 
         private void DisableObsticles()
         {
-            foreach (Obsticle obsticle in obsticles)
+            foreach (Obstacle obsticle in obsticles)
             {
                 obsticle.gameObject.SetActive(false);
             }
@@ -173,7 +173,7 @@ namespace FluffyBird.Core
 
         private void GroundMovement()
         {
-            ground.Translate(Vector3.left * Time.deltaTime * obsticleSetting.ObsticleMoveSpeed);
+            ground.Translate(Vector3.left * Time.deltaTime * obstacleSetting.ObstacleMoveSpeed);
 
             if (ground.position.x < GROUND_RESET_DISCTANCE)
             {
@@ -181,9 +181,9 @@ namespace FluffyBird.Core
             }
         }
 
-        public ObsticleSetting GetObsticleSetting()
+        public ObstacleSetting GetObstacleSetting()
         {
-            return obsticleSetting;
+            return obstacleSetting;
         }
 
         public Rigidbody2D GetBirdRigidbody2D()

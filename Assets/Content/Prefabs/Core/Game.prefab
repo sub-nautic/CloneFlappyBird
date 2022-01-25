@@ -48,13 +48,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   manager: {fileID: 0}
   bird: {fileID: 5447409148521018810, guid: 1aa77506545619748a15b1a25da07923, type: 3}
-  obsticle: {fileID: 7269258194782086438, guid: 0dc4c5f10c483884188b83fa306db2b9, type: 3}
+  obstacle: {fileID: 7269258194782086438, guid: 0dc4c5f10c483884188b83fa306db2b9, type: 3}
   ground: {fileID: 0}
-  obsticleSetting: {fileID: 11400000, guid: d07ded72a00617b449e331d64332a2ef, type: 2}
+  obstacleSetting: {fileID: 11400000, guid: d07ded72a00617b449e331d64332a2ef, type: 2}
   spawnPos: {fileID: 116444298453218896}
   audioManager: {fileID: 5488188809864541835}
-  IsGameStarted: 0
-  CanActive: 0
+  HasGameStarted: 0
+  CanPlay: 0
 --- !u!114 &5488188809864541835
 MonoBehaviour:
   m_ObjectHideFlags: 0
